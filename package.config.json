@@ -1,0 +1,77 @@
+{
+  "@nfjs/auth-openid": {
+    "openid_config": {
+      "description": "Адрес(uri) настроек авторизующего центра"
+    },
+    "client": {
+      "client_id": {
+        "description": "Идентификатор текущей системы"
+      },
+      "client_secret": {
+        "description": "Секретная фраза системы, выданная при регистрации"
+      },
+      "redirect_uris": {
+        "type": "Array<String>",
+        "description": "Адреса(url) в системе, на который перенаправит авторизующий центр",
+        "default": "https://адрес_системы/openid/callback"
+      },
+      "post_logout_redirect_uris": {
+        "type": "Array<String>",
+        "description": "Адреса(url) в системе, на который перенаправит авторизующий центр после запроса на выход из системы",
+        "default": "https://адрес_системы/openid/logout"
+      }
+    },
+    "post_error_redirect_url": {
+      "type": "String",
+      "description": "Адрес(url) в системе, на который будет перенаправлен клиент при ошибке после авторизации",
+      "default": "https://адрес_системы/auth/noservice.html"
+    },
+    "org": {
+      "type": "Number",
+      "description": "Id организации приложения по-умолчанию. Для проверки прав",
+      "default": 1
+    },
+    "roles_scope": {
+      "description": "Префикс для ролей пользователя из авторизующего центра, которые будут выданы пользователю системы"
+    },
+    "roles_default": {
+      "type": "Array<String>",
+      "description": "Список ролей, которые будут выданы авторизовавшемуся пользователю в приложении",
+      "default": [
+        "user"
+      ]
+    },
+    "roles_place": {
+      "type": "String",
+      "description": "В каком токене искать роли пользователя. id или access",
+      "default": "id"
+    },
+    "roles_path": {
+      "type": "String",
+      "description": "Путь в объекте payload токена, в котором искать роли пользователя",
+      "default": "roles"
+    },
+    "username_path": {
+      "type": "String",
+      "description": "Путь в объекте payload токена, в котором искать уникального имени пользователя",
+      "default": "preferred_username"
+    },
+    "fullname_path": {
+      "type": "String",
+      "description": "Путь в объекте payload токена, в котором искать полное имя пользователя",
+      "default": "name"
+    },
+    "useConnectToDb": {
+      "type": "Boolean",
+      "description": "Признак - использовать ли подключение к дефолтному провайдеру данных или нет в процессе авторизации"
+    },
+    "client_scope": {
+      "description": "Список свойств информации о пользователе, полученный от авторизирующего центра, которые нужно положить в клиентскую сессию пользователя",
+      "type": "Array<String>"
+    },
+    "scope": {
+      "description": "Список свойств информации о пользователе, запрашиваемые у авторизирующего центра",
+      "type": "Array<String>"
+    }
+  }
+}

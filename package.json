@@ -1,0 +1,33 @@
+{
+    "name": "@nfjs/auth-openid",
+    "version": "1.0.0",
+    "description": "Authorization by openid module",
+    "type": "module",
+    "main": "nf-index.js",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/nf-framework/nf-auth-openid.git"
+    },
+    "author": {
+        "name": "Andrey Maksimov",
+        "email": "andrmaxmail@gmail.com"
+    },
+    "contributors": [
+        {
+            "name": "Dmitry Boikov",
+            "email": "boikovdv@gmail.com"
+        },
+        {
+            "name": "Azat Yamalov",
+            "email": "yamalov.azat@live.com"
+        }
+    ],
+    "dependencies": {
+        "openid-client": "^5.3.0",
+        "base64url": "^3.0.1"
+    },
+    "exports": {
+        ".": "./index.js",
+        "./nf-module.js": "./nf-module.js"
+    }
+}
