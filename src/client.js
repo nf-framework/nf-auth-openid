@@ -35,9 +35,9 @@ export class ClientOpenId {
      * @returns {Promise<{data: {url: string}}>}
      */
     getAuthUrl() {
-        return this.client.authorizationUrl({
-            scope: (this.config?.scope ?? []).join(' '),
-        });
+        const options = {};
+        if (this.config?.scope) options.scope = this.config.scope.join(' ');
+        return this.client.authorizationUrl(options);
     }
 
     /**
@@ -126,7 +126,7 @@ export class ClientOpenId {
 
             // вызов всех хуков на "до процесса авторизации в системе"
             await api.processHooks('authOpenIdBefore', this, context);
-            // если требуется соединение с бд из дефолтного провайдера. Например для сохранения обновленной информации о пользователе
+            // Если требуется соединение с бд из дефолтного провайдера. Например, для сохранения обновленной информации о пользователе
             if (!!this.config?.useConnectToDb) {
                 connectDb = await dbapi.getConnect(context);
             }
