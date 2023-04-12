@@ -1,6 +1,6 @@
 {
     "name": "@nfjs/auth-openid",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Authorization by openid module",
     "type": "module",
     "main": "nf-index.js",
